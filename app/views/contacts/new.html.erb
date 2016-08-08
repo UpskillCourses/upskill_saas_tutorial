@@ -1,16 +1,28 @@
 <div class="container">
-  <h3 class="text-center">Contact Us</h3>   
-  
-  <%= form_for "/contacts" do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+  <div class="row">
+    <h3 class="text-center">Contact Us</h3>
     
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-    
-    <%= f.label :comments %>
-    <%= f.text_area :comments %>
-    
-    <%= f.submit 'Submit' %>
-  <% end %>
+    <div class="col-md-4 col-md-offset-4">
+      <div class="well">
+        <%= form_for "/contacts" do |f| %>
+          <div class="form-group">
+            <%= f.label :name %>
+            <%= f.text_field :name, class: 'form-control' %>
+          </div>
+            
+          <div class="form-group">
+            <%= f.label :email %>
+            <%= f.text_field :email, class: 'form-control' %>
+          </div>
+            
+          <div class="form-group">
+            <%= f.label :comments %>
+            <%= f.text_area :comments, class: 'form-control' %>
+          </div>
+          
+          <%= f.submit 'Submit', class: 'btn btn-default' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
