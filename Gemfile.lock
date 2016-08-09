@@ -62,6 +62,7 @@ GEM
       sass (>= 3.2)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
+    hirb (0.7.3)
     i18n (0.7.0)
     jbuilder (2.5.0)
       activesupport (>= 3.0.0, < 5.1)
@@ -167,6 +168,7 @@ DEPENDENCIES
   byebug
   coffee-rails (= 4.2.1)
   font-awesome-sass (= 4.6.2)
+  hirb (= 0.7.3)
   jbuilder (= 2.5.0)
   jquery-rails (= 4.1.1)
   listen (= 3.0.5)
