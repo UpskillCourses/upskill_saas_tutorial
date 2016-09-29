@@ -25,8 +25,8 @@
         </div>
         <div class="collapse navbar-collapse" id="main-nav-collapse">
           <div class="nav navbar-nav navbar-right">
-            <a href="/users/sign_in" class="btn btn-default navbar-btn">Log In</a>
-            <a href="/users/sign_up" class="btn btn-default navbar-btn">Sign Up</a>
+            <%= link_to "Log In", new_user_session_path, class: "btn btn-default navbar-btn" %>
+            <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-default navbar-btn" %>
           </div>
           <ul class="nav navbar-nav navbar-right">
             <li><%= link_to "About", about_path %></li>
