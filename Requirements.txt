@@ -3,10 +3,3 @@ Memberships
 * User should see link for Pro plan on home page
 * Basic plan link should point to regular Devise sign up form
 * Pro plan link should point to a custom sign up form
-
-Stripe Integration
-* User objects should have a Stripe card token attribute
-* If user submits Pro form, card info should be sent to Stripe for processing
-and token should be returned immediately
-* When Pro user signs up, our app should notify Stripe to log the new customer
-and save token with user's database record
