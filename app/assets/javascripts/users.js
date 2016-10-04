@@ -23,5 +23,28 @@ $(document).on('turbolinks:load', function(){
         cvcNum = $('#card_code').val(),
         expMonth = $('#card_month').val(),
         expYear = $('#card_year').val();
+    
+    var error = false;
+    
+    if(!Stripe.card.validateCardNumber(ccNum)) {
+      error = true;
+      alert('The credit card number appears to be invalid.');
+    }
+    
+    if(!Stripe.card.validateCVC(cvcNum)) {
+      error = true;
+      alert('The CVC number appears to be invalid.');
+    }
+    
+    if(!Stripe.card.validateExpiry(expMonth, expYear)) {
+      error = true;
+      alert('The expiration date appears to be invalid.');
+    }
+    
+    if (error) {
+      //don't proceed
+    } else {
+      //Submit the card info to Stripe
+    }
   });
 });
