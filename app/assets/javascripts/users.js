@@ -11,6 +11,7 @@ $(document).on('turbolinks:load', function(){
   submitBtn.click(function(event){
     //prevent default submission behavior.
     event.preventDefault();
+    submitBtn.val("Processing").prop('disabled', true);
     
     //Collect the credit card fields.
     var ccNum = $('#card_number').val(),
@@ -41,6 +42,7 @@ $(document).on('turbolinks:load', function(){
         
     if (error) {
       //If there are card errors, don't send to Stripe.
+      submitBtn.prop('disabled', false).val("Sign Up");
     } else {
       //Send the card info to Stripe.
       Stripe.createToken({
