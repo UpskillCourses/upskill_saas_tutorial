@@ -1,6 +1,3 @@
-//Send card info to Stripe
-//Handle Stripe's response (which includes token)
-
 //Wait for turbolinks to load, instead of document ready
 $(document).on('turbolinks:load', function(){
   /* global $, Stripe */
@@ -45,8 +42,10 @@ $(document).on('turbolinks:load', function(){
     }
     
     if (error) {
+      //If there are errors, re-enable the button
       submitBtn.prop('disabled', false).val("Sign Up");
     } else {
+      //If there are no errors, call Stripe server with card information
       Stripe.createToken({
         number: ccNum,
         cvc: cvcNum,
@@ -54,5 +53,18 @@ $(document).on('turbolinks:load', function(){
         exp_year: expYear
       }, stripeResponseHandler);
     }
+    return false;
   });
+  
+  //A function to handle the Stripe response
+  function stripeResponseHandler(status, response) {
+    //Get the token from the response
+    var token = response.id;
+    
+    //Inject the card token in a hidden field
+    theForm.append('<input type="hidden" name="user[stripe_card_token" value"' + token + '" >');
+    
+    //Submit the form
+    theForm.get(0).submit();
+  }
 });
